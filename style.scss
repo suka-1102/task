@@ -17,6 +17,29 @@
       color: #fff;
     }
   }
+  .task {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    
+    .taskList {
+      display: grid;
+      grid-template-columns: repeat(3,30%);
+      gap: 2%;
+      li {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid black;
+        border-radius: 15px;
+        a {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+    }
+  }
   .modal {
     position: absolute;
     width: 70vw;

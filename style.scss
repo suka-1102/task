@@ -1,3 +1,7 @@
+:root {
+  --siteBlue: #1f97e1;
+}
+
 .inner {
   margin: 75px 100px;
   display: flex;
@@ -9,7 +13,7 @@
     justify-content: flex-end;
     .newTaskButton {
       padding: 10px;
-      background-color: #1f97e1;
+      background-color: var(--siteBlue);
       color: #fff;
     }
   }
@@ -52,6 +56,14 @@
         border: 1px solid black;
         padding: 40px 0;
       }
+    }
+    .inputComplete {
+      padding: 10px;
+      background-color: var(--siteBlue);
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      color: #fff;
     }
   }
 }

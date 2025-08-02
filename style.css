@@ -1,3 +1,7 @@
+:root {
+  --siteBlue: #1f97e1;
+}
+
 .inner {
   margin: 75px 100px;
   display: flex;
@@ -10,7 +14,7 @@
 }
 .inner .newTask .newTaskButton {
   padding: 10px;
-  background-color: #1f97e1;
+  background-color: var(--siteBlue);
   color: #fff;
 }
 .inner .modal {
@@ -49,6 +53,14 @@
   width: 80%;
   border: 1px solid black;
   padding: 40px 0;
+}
+.inner .modal .inputComplete {
+  padding: 10px;
+  background-color: var(--siteBlue);
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
 }
 
 .mask {

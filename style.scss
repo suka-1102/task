@@ -28,13 +28,15 @@
       gap: 2%;
       li {
         width: 100%;
-        padding: 15px;
+        
         border: 1px solid black;
         border-radius: 15px;
-        a {
+        button {
           display: flex;
           flex-direction: column;
+          padding: 15px;
           gap: 8px;
+          width: 100%;
         }
       }
 
@@ -80,7 +82,8 @@
         padding: 40px 0;
       }
     }
-    .inputComplete {
+    .inputComplete,
+    .editTask {
       padding: 10px;
       background-color: var(--siteBlue);
       width: 25%;
@@ -88,6 +91,15 @@
       justify-content: center;
       color: #fff;
     }
+    .deleteTask {
+      padding: 10px;
+      background-color: #dd6d6d;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      color: #fff;
+    }
+    
   }
 }
 .mask {

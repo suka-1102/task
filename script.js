@@ -7,6 +7,12 @@ const newTaskContentInput = document.getElementById('newTaskContentInput')
 const newTaskTermInput = document.getElementById('newTaskTermInput')
 const inputComplete = document.getElementById('inputComplete')
 const taskList = document.getElementById('taskList')
+const deleteTask = document.getElementById('deleteTask')
+const editTask = document.getElementById('editTask')
+const newTaskName = document.getElementById('newTaskName')
+const newTaskContent = document.getElementById('newTaskContent')
+const newTaskTerm = document.getElementById('newTaskTerm')
+
 
 
 modal.classList.add('deactive')
@@ -14,8 +20,15 @@ mask.classList.add('deactive')
 
 
 newTaskButton.addEventListener('click', () =>{
+  newTaskName.style.display = 'block'
+  newTaskContent.style.display = 'block'
+  newTaskTerm.style.display = 'block'
+  inputComplete.style.display = 'block'
   mask.classList.remove('deactive');
   modal.classList.remove('deactive')
+  deleteTask.style.display = 'none' 
+  editTask.style.display = 'none' 
+
 })
 modalCancel.addEventListener('click', () => {
   mask.classList.add('deactive');
@@ -55,7 +68,7 @@ inputComplete.addEventListener('click', () => {
 
 function taskAdd() {
   const li = document.createElement('li');
-  const a = document.createElement('a');
+  const button = document.createElement('button');
 
   const spanName = document.createElement('span');
   spanName.classList = 'taskName'
@@ -69,24 +82,24 @@ function taskAdd() {
   spanTerm.classList = 'spanTerm'
   spanTerm.textContent = newTaskTermInputValue
 
-  
-
-  
+  button.addEventListener('click', () => {
+    
+  });
 
   taskList.appendChild(li)
-  li.appendChild(a)
-  a.appendChild(spanName)
-  a.appendChild(spanContent)
-  a.appendChild(spanTerm)
+  li.appendChild(button)
+  button.appendChild(spanName)
+  button.appendChild(spanContent)
+  button.appendChild(spanTerm)
 }
 if(taskSwitch) {
   for(let i = 1; i <= localStorage.length - 1; i++) {
     if(localStorage.getItem(`taskData${i}`)){
       const li = document.createElement('li');
-      const a = document.createElement('a');
+      const button = document.createElement('button');
       const data = JSON.parse(localStorage.getItem(`taskData${i}`))
       const task = data[0]
-      console.log(data)
+
       const spanName = document.createElement('span');
       spanName.classList = 'taskName'
       spanName.textContent = task.name
@@ -98,13 +111,27 @@ if(taskSwitch) {
       spanTerm.classList = 'spanTerm'
       spanTerm.textContent = task.term
 
-  
+      // タスクボタンを押したとき
+      button.addEventListener('click', () => {
+        mask.classList.remove('deactive');
+        modal.classList.remove('deactive')
+        deleteTask.style.display = 'flex' 
+        editTask.style.display = 'flex' 
+        newTaskName.style.display = 'none'
+        newTaskContent.style.display = 'none'
+        newTaskTerm.style.display = 'none'
+        inputComplete.style.display = 'none'
+      });
 
+  
       taskList.appendChild(li)
-      li.appendChild(a)
-      a.appendChild(spanName)
-      a.appendChild(spanContent)
-      a.appendChild(spanTerm)
+      li.appendChild(button)
+      button.appendChild(spanName)
+      button.appendChild(spanContent)
+      button.appendChild(spanTerm)
     }
   }
 }
+
+
+// 削除を押したとき

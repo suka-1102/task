@@ -21,28 +21,21 @@
       <div class="task">
         <p class="title">タスク一覧</p>
         <ul class="taskList" id="taskList">
-          <!-- <li>
-            <a href="">
-              <span class="taskName">筋トレ</span>
-              <span class="taskContent">デッドリフト三回
-              </span>
-              <span class="taskTerm">８月３日</span>
-            </a>
-          </li> -->
+  
         </ul>
       </div>
       <div class="favorite"></div>
       <div class="modal" id="modal">
         <button href="" class="modalCancel" id="modalCancel">×</button>
-        <div class="newTaskName">
+        <div class="newTaskName" id="newTaskName">
           <p>タスクの名前</p>
           <input type="text" id="newTaskNameInput">
         </div>
-        <div class="newTaskContent">
+        <div class="newTaskContent" id="newTaskContent">
           <p>タスクの内容</p>
           <input type="text" id="newTaskContentInput">
         </div>
-        <div class="newTaskTerm">
+        <div class="newTaskTerm" id="newTaskTerm">
           <p>タスクの期間</p>
           <input type="text" id="newTaskTermInput">
   
@@ -50,6 +43,8 @@
         <button class="inputComplete" id="inputComplete">
           完了
         </button>
+        <button class="deleteTask" id="deleteTask">削除</button>
+        <button class="editTask" id="editTask">編集</button>
       </div>
     </div>
     <div class="mask" id="mask"></div>

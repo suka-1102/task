@@ -29,7 +29,8 @@
       li {
         width: 100%;
         
-        border: 1px solid black;
+        border: 1px solid #efefef;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
         border-radius: 15px;
         button {
           display: flex;
@@ -74,12 +75,18 @@
         border: 1px solid black;
         padding: 15px 0;
       }
+      &.deactive {
+        display: none;
+      }
     }
     .newTaskContent {
       input {
         width: 80%;
         border: 1px solid black;
         padding: 40px 0;
+      }
+      &.deactive {
+        display: none;
       }
     }
     .inputComplete,
@@ -90,6 +97,9 @@
       display: flex;
       justify-content: center;
       color: #fff;
+      &.deactive {
+        display: none;
+      }
     }
     .deleteTask {
       padding: 10px;
@@ -98,6 +108,9 @@
       display: flex;
       justify-content: center;
       color: #fff;
+      &.deactive {
+        display: none;
+      }
     }
     
   }

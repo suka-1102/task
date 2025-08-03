@@ -29,7 +29,8 @@
 }
 .inner .task .taskList li {
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #efefef;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 .inner .task .taskList li button {
@@ -71,10 +72,17 @@
   border: 1px solid black;
   padding: 15px 0;
 }
+.inner .modal .newTaskName.deactive,
+.inner .modal .newTaskTerm.deactive {
+  display: none;
+}
 .inner .modal .newTaskContent input {
   width: 80%;
   border: 1px solid black;
   padding: 40px 0;
+}
+.inner .modal .newTaskContent.deactive {
+  display: none;
 }
 .inner .modal .inputComplete,
 .inner .modal .editTask {
@@ -85,6 +93,10 @@
   justify-content: center;
   color: #fff;
 }
+.inner .modal .inputComplete.deactive,
+.inner .modal .editTask.deactive {
+  display: none;
+}
 .inner .modal .deleteTask {
   padding: 10px;
   background-color: #dd6d6d;
@@ -92,6 +104,9 @@
   display: flex;
   justify-content: center;
   color: #fff;
+}
+.inner .modal .deleteTask.deactive {
+  display: none;
 }
 
 .mask {

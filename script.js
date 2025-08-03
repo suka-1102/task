@@ -66,7 +66,7 @@ inputComplete.addEventListener('click', () => {
   newTaskTermInput.value = null;
   newTaskTermInputEnd.value = null;
   taskData.length = 0;
-  
+  buttonClick()
   mask.classList.add('deactive');
   modal.classList.add('deactive');
 })
@@ -108,7 +108,7 @@ function taskAdd() {
 const taskNumber = JSON.parse(localStorage.getItem('taskData')).length
 if(taskSwitch){
   Array.from({ length: taskNumber }).forEach((_, i) => {
-    const newTaskId = new Date().getTime();
+    let newTaskId = `${new Date().getTime()}${i}`;
     const li = document.createElement('li');
     li.id = newTaskId
     const button = document.createElement('button');
@@ -131,8 +131,23 @@ if(taskSwitch){
     spanTermEnd.classList = 'spanTermEnd';
     spanTermEnd.textContent = task.termEnd;
   
-    // タスクボタンを押したとき
-    button.addEventListener('click', () => {
+    taskList.appendChild(li);
+    li.appendChild(button);
+    button.appendChild(spanName);
+    button.appendChild(spanContent);
+    button.appendChild(spanTerm);
+    button.appendChild(spanTermEnd);
+    newTaskId = null
+  });
+  
+}
+
+
+
+
+function buttonClick() {
+  document.querySelectorAll('.taskList > li > button').forEach(button => {
+    button.addEventListener('click', function ()  {
       mask.classList.remove('deactive');
       modal.classList.remove('deactive');
       deleteTask.classList.remove('deactive');
@@ -141,18 +156,11 @@ if(taskSwitch){
       newTaskContent.classList.add('deactive');
       newTaskTerm.classList.add('deactive');
       inputComplete.classList.add('deactive');
+      const liId = this.parentElement.id;
+      console.log(liId);
+      
     });
-  
-    taskList.appendChild(li);
-    li.appendChild(button);
-    button.appendChild(spanName);
-    button.appendChild(spanContent);
-    button.appendChild(spanTerm);
-    button.appendChild(spanTermEnd);
-  });
-  
+  })
 }
 
-
-
-
+buttonClick()

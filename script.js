@@ -14,6 +14,11 @@ const newTaskName = document.getElementById('newTaskName')
 const newTaskContent = document.getElementById('newTaskContent')
 const newTaskTerm = document.getElementById('newTaskTerm')
 
+let isDelete = false
+let isTaskClick = false;
+let taskListLi = document.querySelectorAll('.taskList li');
+let index = Array.from(taskListLi).findIndex(li => li.id === liId)
+let liId;
 
 
 modal.classList.add('deactive')
@@ -43,6 +48,8 @@ let newTaskContentInputValue;
 let newTaskTermInputValue;
 let newTaskTermInputValueEnd;
 let taskSwitch = true
+let taskData
+let taskElement
 
 // 完了ボタンを押したとき
 inputComplete.addEventListener('click', () => {
@@ -51,22 +58,21 @@ inputComplete.addEventListener('click', () => {
   newTaskContentInputValue = newTaskContentInput.value
   newTaskTermInputValue = newTaskTermInput.value
   newTaskTermInputValueEnd = newTaskTermInputEnd.value
-  // taskNumber = JSON.parse(localStorage.getItem('taskNumber'))
-  // taskNumber++;
+
   taskData.push({ name:newTasknameInputValue,
                   content: newTaskContentInputValue,
                   term: newTaskTermInputValue,
                   termEnd: newTaskTermInputValueEnd
                 })
   localStorage.setItem(`taskData`,  JSON.stringify(taskData))
-  // localStorage.setItem('taskNumber', JSON.stringify(taskNumber))
   taskAdd()
+  
   newTaskNameInput.value = null;
   newTaskContentInput.value = null;
   newTaskTermInput.value = null;
   newTaskTermInputEnd.value = null;
-  taskData.length = 0;
-  buttonClick()
+  
+  // taskData.length = 0;
   mask.classList.add('deactive');
   modal.classList.add('deactive');
 })
@@ -93,9 +99,8 @@ function taskAdd() {
   spanTermEnd.classList = 'spanTermEnd'
   spanTermEnd.textContent = newTaskTermInputValueEnd
 
-  button.addEventListener('click', () => {
-    
-  });
+  
+  
 
   taskList.appendChild(li)
   li.appendChild(button)
@@ -104,15 +109,16 @@ function taskAdd() {
   button.appendChild(spanTerm)
   button.appendChild(spanTermEnd)
 }
-
+const data = JSON.parse(localStorage.getItem('taskData'));
 const taskNumber = JSON.parse(localStorage.getItem('taskData')).length
 if(taskSwitch){
+  
   Array.from({ length: taskNumber }).forEach((_, i) => {
     let newTaskId = `${new Date().getTime()}${i}`;
     const li = document.createElement('li');
     li.id = newTaskId
     const button = document.createElement('button');
-    const data = JSON.parse(localStorage.getItem('taskData'));
+    
     const task = data[i];
   
     const spanName = document.createElement('span');
@@ -130,7 +136,7 @@ if(taskSwitch){
     const spanTermEnd = document.createElement('span');
     spanTermEnd.classList = 'spanTermEnd';
     spanTermEnd.textContent = task.termEnd;
-  
+    
     taskList.appendChild(li);
     li.appendChild(button);
     button.appendChild(spanName);
@@ -138,14 +144,15 @@ if(taskSwitch){
     button.appendChild(spanTerm);
     button.appendChild(spanTermEnd);
     newTaskId = null
+    
   });
-  
+  taskClick()
 }
 
 
-
-
-function buttonClick() {
+//　タスクをクリックした時の関数
+function taskClick() {
+  taskListLi = document.querySelectorAll('.taskList li');
   document.querySelectorAll('.taskList > li > button').forEach(button => {
     button.addEventListener('click', function ()  {
       mask.classList.remove('deactive');
@@ -157,10 +164,32 @@ function buttonClick() {
       newTaskTerm.classList.add('deactive');
       inputComplete.classList.add('deactive');
       const liId = this.parentElement.id;
-      console.log(liId);
+      index = Array.from(taskListLi).findIndex(li => li.id === liId)
+      taskElement = document.getElementById(liId);
+      deleteButton()
       
+
     });
   })
 }
 
-buttonClick()
+
+
+
+// 削除ボタンを押した時の処理をする関数
+function deleteButton() {
+  if(isDelete) return;
+  deleteTask.addEventListener('click', () => {
+    let taskData = JSON.parse(localStorage.getItem('taskData'));
+    
+    console.log(index)
+    taskData.splice(index,1)
+    
+    localStorage.setItem('taskData', JSON.stringify(taskData));
+    console.log(taskData)
+    // 消した後の表示変更
+    taskList.removeChild(taskElement)
+
+  })
+  isDelete = true;
+}

@@ -1,51 +1,68 @@
 :root {
   --siteBlue: #1f97e1;
+  --siteGray: #9b9b9b;
 }
 
-.inner {
-  margin: 75px 100px;
+html {
+  height: 100vh;
+  background-color: #f3f0ed;
+}
+
+main .inner {
+  margin: 75px 5%;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-.inner .newTask {
+main .inner .newTask {
   display: flex;
   justify-content: flex-end;
 }
-.inner .newTask .newTaskButton {
-  padding: 10px;
+main .inner .newTask .newTaskButton {
+  padding: 12px 15px;
   background-color: var(--siteBlue);
   color: #fff;
+  font-size: 12px;
+  border-radius: 12px;
 }
-.inner .task {
+main .inner .task {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
 }
-.inner .task .taskList {
+main .inner .task .taskList {
   display: grid;
-  grid-template-columns: repeat(3, 30%);
+  grid-template-columns: repeat(3, 32%);
   gap: 2%;
 }
-.inner .task .taskList li {
+main .inner .task .taskList li {
   width: 100%;
+  background-color: #fff;
   border: 1px solid #efefef;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: 10px;
 }
-.inner .task .taskList li button {
+main .inner .task .taskList li button {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 8px;
   width: 100%;
 }
-.inner .modal {
+main .inner .task .taskList li button .taskName {
+  font-size: 16px;
+}
+main .inner .task .taskList li button .spanContent {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+main .inner .modal {
   position: absolute;
-  width: 70vw;
+  width: 73vw;
   height: 70vw;
   top: 50%;
   left: 50%;
+  align-items: center;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 10;
@@ -54,38 +71,48 @@
   padding: 40px;
   border-radius: 15px;
   border: 1px solid black;
-  gap: 40px;
+  gap: 30px;
 }
-.inner .modal.deactive {
+main .inner .modal.deactive {
   opacity: 0;
   pointer-events: none;
 }
-.inner .modal .modalCancel {
+main .inner .modal .modalCancel {
   margin-bottom: -20px;
   margin-top: -15px;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.inner .modal .newTaskName input,
-.inner .modal .newTaskTerm input {
+main .inner .modal .newTaskName,
+main .inner .modal .newTaskTerm {
   width: 80%;
-  border: 1px solid black;
-  padding: 15px 0;
 }
-.inner .modal .newTaskName.deactive,
-.inner .modal .newTaskTerm.deactive {
+main .inner .modal .newTaskName input,
+main .inner .modal .newTaskTerm input {
+  width: 100%;
+  border: 1px solid var(--siteGray);
+  padding: 5px;
+  border-radius: 7px;
+}
+main .inner .modal .newTaskName.deactive,
+main .inner .modal .newTaskTerm.deactive {
   display: none;
 }
-.inner .modal .newTaskContent input {
+main .inner .modal .newTaskContent {
   width: 80%;
-  border: 1px solid black;
+}
+main .inner .modal .newTaskContent input {
+  width: 100%;
+  border: 1px solid var(--siteGray);
   padding: 40px 0;
+  border-radius: 7px;
 }
-.inner .modal .newTaskContent.deactive {
+main .inner .modal .newTaskContent.deactive {
   display: none;
 }
-.inner .modal .inputComplete,
-.inner .modal .editTask {
+main .inner .modal .inputComplete,
+main .inner .modal .editTask {
   padding: 10px;
   background-color: var(--siteBlue);
   width: 25%;
@@ -93,11 +120,11 @@
   justify-content: center;
   color: #fff;
 }
-.inner .modal .inputComplete.deactive,
-.inner .modal .editTask.deactive {
+main .inner .modal .inputComplete.deactive,
+main .inner .modal .editTask.deactive {
   display: none;
 }
-.inner .modal .deleteTask {
+main .inner .modal .deleteTask {
   padding: 10px;
   background-color: #dd6d6d;
   width: 25%;
@@ -105,7 +132,7 @@
   justify-content: center;
   color: #fff;
 }
-.inner .modal .deleteTask.deactive {
+main .inner .modal .deleteTask.deactive {
   display: none;
 }
 

@@ -1,120 +1,142 @@
 :root {
   --siteBlue: #1f97e1;
+  --siteGray: #9b9b9b;
 }
-
-.inner {
-  margin: 75px 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  .newTask {
-    display: flex;
-    justify-content: flex-end;
-    .newTaskButton {
-      padding: 10px;
-      background-color: var(--siteBlue);
-      color: #fff;
-    }
-  }
-  .task {
+html {
+  height: 100vh;
+  background-color: #f3f0ed;
+}
+main {
+  .inner {
+    margin: 75px 5%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    
-    .taskList {
-      display: grid;
-      grid-template-columns: repeat(3,30%);
-      gap: 2%;
-      li {
-        width: 100%;
-        
-        border: 1px solid #efefef;
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
-        button {
-          display: flex;
-          flex-direction: column;
-          padding: 15px;
-          gap: 8px;
-          width: 100%;
-        }
-      }
-
-    }
-  }
-  .modal {
-    position: absolute;
-    width: 70vw;
-    height: 70vw;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    z-index: 10;
-    background-color: #fff;
-    flex-direction: column;
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid black;
-    gap: 40px;
-    &.deactive {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .modalCancel {
-      margin-bottom: -20px;
-      margin-top: -15px;
+    gap: 30px;
+  
+    .newTask {
       display: flex;
       justify-content: flex-end;
-    }
-    .newTaskName,
-    .newTaskTerm {
-      input {
-        width: 80%;
-        border: 1px solid black;
-        padding: 15px 0;
-      }
-      &.deactive {
-        display: none;
+      .newTaskButton {
+        padding: 12px 15px;
+        background-color: var(--siteBlue);
+        color: #fff;
+        font-size: 12px;
+        border-radius: 12px;
       }
     }
-    .newTaskContent {
-      input {
-        width: 80%;
-        border: 1px solid black;
-        padding: 40px 0;
-      }
-      &.deactive {
-        display: none;
-      }
-    }
-    .inputComplete,
-    .editTask {
-      padding: 10px;
-      background-color: var(--siteBlue);
-      width: 25%;
+    .task {
       display: flex;
-      justify-content: center;
-      color: #fff;
-      &.deactive {
-        display: none;
+      flex-direction: column;
+      gap: 15px;
+      
+      .taskList {
+        display: grid;
+        grid-template-columns: repeat(3,32%);
+        gap: 2%;
+        li {
+          width: 100%;
+          background-color: #fff;
+          border: 1px solid #efefef;
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          button {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 8px;
+            width: 100%;
+            .taskName {
+              font-size: 16px;
+            }
+            .spanContent {
+              font-size: 12px;
+              color: #9b9b9b;
+            }
+          }
+        }
+  
       }
     }
-    .deleteTask {
-      padding: 10px;
-      background-color: #dd6d6d;
-      width: 25%;
+    .modal {
+      position: absolute;
+      width: 73vw;
+      height: 70vw;
+      top: 50%;
+      left: 50%;
+      align-items: center;
+      transform: translate(-50%, -50%);
       display: flex;
-      justify-content: center;
-      color: #fff;
+      z-index: 10;
+      background-color: #fff;
+      flex-direction: column;
+      padding: 40px;
+      border-radius: 15px;
+      border: 1px solid black;
+      gap: 30px;
       &.deactive {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
       }
+      .modalCancel {
+        margin-bottom: -20px;
+        margin-top: -15px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .newTaskName,
+      .newTaskTerm {
+        width: 80%;
+        input {
+          width: 100%;
+          border: 1px solid var(--siteGray);
+          padding: 5px;
+          border-radius: 7px;
+        }
+        &.deactive {
+          display: none;
+        }
+      }
+      .newTaskContent {
+        width: 80%;
+        input {
+          width: 100%;
+          border: 1px solid var(--siteGray);
+          padding: 40px 0;
+          border-radius: 7px;
+        }
+        &.deactive {
+          display: none;
+        }
+      }
+      .inputComplete,
+      .editTask {
+        padding: 10px;
+        background-color: var(--siteBlue);
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        &.deactive {
+          display: none;
+        }
+      }
+      .deleteTask {
+        padding: 10px;
+        background-color: #dd6d6d;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        &.deactive {
+          display: none;
+        }
+      }
+      
     }
-    
   }
 }
+
 .mask {
   position: fixed;
   top: 0;

@@ -75,6 +75,7 @@ inputComplete.addEventListener('click', () => {
   // taskData.length = 0;
   mask.classList.add('deactive');
   modal.classList.add('deactive');
+  taskClick()
 })
 
 function taskAdd() {

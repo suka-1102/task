@@ -1,6 +1,4 @@
-import {taskClick,newTaskButtonProcess,completeButton} from '/js/button.js';
-// import {taskAdd} from '/js/functions.js'
-
+import { taskClick, newTaskButtonProcess, completeButton } from '/js/button.js';
 
 
 const modal = document.getElementById('modal')
@@ -8,8 +6,6 @@ const mask = document.getElementById('mask')
 const modalCancel = document.getElementById('modalCancel')
 
 const taskList = document.getElementById('taskList')
-
-
 
 modal.classList.add('deactive')
 mask.classList.add('deactive')
@@ -32,9 +28,9 @@ const taskNumber = JSON.parse(localStorage.getItem('taskData')).length
 if(taskSwitch){
   
   Array.from({ length: taskNumber }).forEach((_, i) => {
-    let newTaskId = `${new Date().getTime()}${i}`;
+    let newTaskId = data[i].id
     const li = document.createElement('li');
-    li.id = newTaskId
+    li.id = newTaskId;
     const button = document.createElement('button');
     
     const task = data[i];

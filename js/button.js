@@ -1,13 +1,11 @@
-import {taskAdd} from './functions.js'
+import { taskAdd } from './taskAction.js'
 
 let taskListLi = document.querySelectorAll('.taskList li');
 let index = Array.from(taskListLi).findIndex(li => li.id === liId)
 let isDelete = false
 let taskElement
-let newTasknameInputValue;
-let newTaskContentInputValue;
-let newTaskTermInputValue;
-let newTaskTermInputValueEnd;
+
+
 const deleteTask = document.getElementById('deleteTask')
 const editTask = document.getElementById('editTask')
 const newTaskName = document.getElementById('newTaskName')
@@ -36,8 +34,6 @@ export function taskClick() {
       index = Array.from(taskListLi).findIndex(li => li.id === liId)
       taskElement = document.getElementById(liId);
       deleteButton()
-      
-
     });
   })
 }
@@ -80,15 +76,17 @@ export function newTaskButtonProcess() {
 export function completeButton() {
   inputComplete.addEventListener('click', () => {
     let taskData = JSON.parse(localStorage.getItem('taskData')) || [];
-    newTasknameInputValue = newTaskNameInput.value
-    newTaskContentInputValue = newTaskContentInput.value
-    newTaskTermInputValue = newTaskTermInput.value
-    newTaskTermInputValueEnd = newTaskTermInputEnd.value
+    let newTasknameInputValue = newTaskNameInput.value
+    let newTaskContentInputValue = newTaskContentInput.value
+    let newTaskTermInputValue = newTaskTermInput.value
+    let newTaskTermInputValueEnd = newTaskTermInputEnd.value
+    let newTaskId = `${new Date().getTime()}`
   
     taskData.push({ name:newTasknameInputValue,
                     content: newTaskContentInputValue,
                     term: newTaskTermInputValue,
-                    termEnd: newTaskTermInputValueEnd
+                    termEnd: newTaskTermInputValueEnd,
+                    id: newTaskId
                   })
     localStorage.setItem(`taskData`,  JSON.stringify(taskData))
     taskAdd()
@@ -98,7 +96,6 @@ export function completeButton() {
     newTaskTermInput.value = null;
     newTaskTermInputEnd.value = null;
     
-    // taskData.length = 0;
     mask.classList.add('deactive');
     modal.classList.add('deactive');
     taskClick()

@@ -114,6 +114,7 @@ main .inner .modal .newTaskContent.deactive {
   display: none;
 }
 main .inner .modal .inputComplete,
+main .inner .modal .inputEditComplete,
 main .inner .modal .editTask {
   padding: 10px;
   background-color: var(--siteBlue);
@@ -123,6 +124,7 @@ main .inner .modal .editTask {
   color: #fff;
 }
 main .inner .modal .inputComplete.deactive,
+main .inner .modal .inputEditComplete.deactive,
 main .inner .modal .editTask.deactive {
   display: none;
 }

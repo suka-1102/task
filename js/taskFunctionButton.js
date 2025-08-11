@@ -16,6 +16,7 @@ const newTaskContentInput = document.getElementById('newTaskContentInput')
 const newTaskTermInput = document.getElementById('newTaskTermInput')
 const newTaskTermInputEnd = document.getElementById('newTaskTermInputEnd')
 const inputComplete = document.getElementById('inputComplete')
+const inputEditComplete = document.getElementById('inputEditComplete')
 const newTaskButton = document.getElementById('newTaskButton')
 //　タスクをクリックした時の関数
 export function taskClick() {
@@ -30,6 +31,7 @@ export function taskClick() {
       newTaskContent.classList.add('deactive');
       newTaskTerm.classList.add('deactive');
       inputComplete.classList.add('deactive');
+      inputEditComplete.classList.add('deactive');
       const liId = this.parentElement.id;
       index = Array.from(taskListLi).findIndex(li => li.id === liId)
       taskElement = document.getElementById(liId);
@@ -39,17 +41,16 @@ export function taskClick() {
 }
 
 
-
+const taskData = JSON.parse(localStorage.getItem('taskData'));
 // 削除ボタンを押した時の処理をする関数
 export function deleteButton() {
   if(isDelete) return;
   deleteTask.addEventListener('click', () => {
-    let taskData = JSON.parse(localStorage.getItem('taskData'));
+    
     
     taskData.splice(index,1)
     
     localStorage.setItem('taskData', JSON.stringify(taskData));
-    console.log(taskData)
     // 消した後の表示変更
     taskList.removeChild(taskElement)
 
@@ -64,6 +65,7 @@ export function newTaskButtonProcess() {
     newTaskContent.classList.remove('deactive')
     newTaskTerm.classList.remove('deactive')
     inputComplete.classList.remove('deactive')
+    inputEditComplete.classList.add('deactive')
     mask.classList.remove('deactive');
     modal.classList.remove('deactive')
     deleteTask.classList.add('deactive')
@@ -98,5 +100,65 @@ export function completeButton() {
     mask.classList.add('deactive');
     modal.classList.add('deactive');
     taskClick()
+  })
+}
+
+// 編集ボタンを押した時の関数
+export function editFunction() {
+  editTask.addEventListener('click', () => {
+    newTaskName.classList.remove('deactive')
+    console.log(index)
+    newTaskNameInput.value = taskData[index].name
+
+    newTaskContent.classList.remove('deactive')
+    newTaskContentInput.value = taskData[index].content
+
+    newTaskTerm.classList.remove('deactive')
+    newTaskTermInput.value = taskData[index].term
+
+    newTaskTermInputEnd.value = taskData[index].termEnd
+    inputComplete.classList.add('deactive')
+
+    inputEditComplete.classList.remove('deactive')
+    mask.classList.remove('deactive');
+    modal.classList.remove('deactive')
+    deleteTask.classList.add('deactive')
+    editTask.classList.add('deactive')
+
+    // 編集完了ボタンを押した時
+    inputEditComplete.addEventListener('click', ()=> {
+      taskData[index].name = newTaskNameInput.value
+      taskData[index].content = newTaskContentInput.value
+      taskData[index].term = newTaskTermInput.value
+      taskData[index].termEnd = newTaskTermInputEnd.value
+      localStorage.setItem(`taskData`,  JSON.stringify(taskData))
+      
+      const taskNameElements = document.querySelectorAll('.taskName');
+      const taskContentElements = document.querySelectorAll('.spanContent');
+      const taskTermElements = document.querySelectorAll('.spanTerm');
+      const taskTermEndElements = document.querySelectorAll('.spanTermEnd');
+      taskNameElements.forEach((el, i) => {
+        if (i === index) {
+          el.textContent = taskData[index].name;
+        }
+      });
+      taskContentElements.forEach((el, i) => {
+        if (i === index) {
+          el.textContent = taskData[index].content;
+        }
+      });
+      taskTermElements.forEach((el, i) => {
+        if (i === index) {
+          el.textContent = taskData[index].term;
+        }
+      });
+      taskTermEndElements.forEach((el, i) => {
+        if (i === index) {
+          el.textContent = taskData[index].termEnd;
+        }
+      });
+      mask.classList.add('deactive');
+      modal.classList.add('deactive');
+    })
   })
 }

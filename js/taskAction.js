@@ -1,4 +1,4 @@
-
+const editTask = document.getElementById('editTask')
 // タスクを追加する関数
 export function taskAdd() {
  
@@ -24,9 +24,6 @@ export function taskAdd() {
   spanTermEnd.classList = 'spanTermEnd'
   spanTermEnd.textContent = newTaskTermInputEnd.value
 
-  
-  
-
   taskList.appendChild(li)
   li.appendChild(button)
   button.appendChild(spanName)
@@ -34,3 +31,4 @@ export function taskAdd() {
   button.appendChild(spanTerm)
   button.appendChild(spanTermEnd)
 }
+

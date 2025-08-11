@@ -1,4 +1,4 @@
-import { taskClick, newTaskButtonProcess, completeButton } from '/js/taskFunctionButton.js';
+import { taskClick, newTaskButtonProcess, completeButton, editFunction } from '/js/taskFunctionButton.js';
 
 
 const modal = document.getElementById('modal')
@@ -18,6 +18,7 @@ modalCancel.addEventListener('click', () => {
 })
 
 completeButton()
+editFunction()
 
 
 let taskSwitch = true

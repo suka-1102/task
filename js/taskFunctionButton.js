@@ -46,7 +46,6 @@ export function deleteButton() {
   deleteTask.addEventListener('click', () => {
     let taskData = JSON.parse(localStorage.getItem('taskData'));
     
-    console.log(index)
     taskData.splice(index,1)
     
     localStorage.setItem('taskData', JSON.stringify(taskData));
@@ -75,12 +74,12 @@ export function newTaskButtonProcess() {
 // 完了ボタンを押したとき
 export function completeButton() {
   inputComplete.addEventListener('click', () => {
-    let taskData = JSON.parse(localStorage.getItem('taskData')) || [];
-    let newTasknameInputValue = newTaskNameInput.value
-    let newTaskContentInputValue = newTaskContentInput.value
-    let newTaskTermInputValue = newTaskTermInput.value
-    let newTaskTermInputValueEnd = newTaskTermInputEnd.value
-    let newTaskId = `${new Date().getTime()}`
+    const taskData = JSON.parse(localStorage.getItem('taskData')) || [];
+    const newTasknameInputValue = newTaskNameInput.value
+    const newTaskContentInputValue = newTaskContentInput.value
+    const newTaskTermInputValue = newTaskTermInput.value
+    const newTaskTermInputValueEnd = newTaskTermInputEnd.value
+    const newTaskId = `${new Date().getTime()}`
   
     taskData.push({ name:newTasknameInputValue,
                     content: newTaskContentInputValue,

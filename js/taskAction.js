@@ -1,29 +1,28 @@
 
 // タスクを追加する関数
 export function taskAdd() {
-  let newTaskId = new Date().getTime();
-  let newTasknameInputValue = newTaskNameInput.value
-  let newTaskContentInputValue = newTaskContentInput.value
-  let newTaskTermInputValue = newTaskTermInput.value
-  let newTaskTermInputValueEnd = newTaskTermInputEnd.value
+ 
+  const data = JSON.parse(localStorage.getItem('taskData'));
+  const taskNumber = JSON.parse(localStorage.getItem('taskData')).length
   let li = document.createElement('li');
-  li.id = newTaskId;
+  console.log(taskNumber)
+  li.id = data[ taskNumber - 1 ].id;
   let button = document.createElement('button');
   let spanName = document.createElement('span');
   spanName.classList = 'taskName'
-  spanName.textContent = newTasknameInputValue
+  spanName.textContent = newTaskNameInput.value
 
   let spanContent = document.createElement('span');
   spanContent.classList = 'spanContent'
-  spanContent.textContent = newTaskContentInputValue
+  spanContent.textContent = newTaskContentInput.value
 
   let spanTerm = document.createElement('span');
   spanTerm.classList = 'spanTerm'
-  spanTerm.textContent = newTaskTermInputValue
+  spanTerm.textContent = newTaskTermInput.value
 
   let spanTermEnd = document.createElement('span');
   spanTermEnd.classList = 'spanTermEnd'
-  spanTermEnd.textContent = newTaskTermInputValueEnd
+  spanTermEnd.textContent = newTaskTermInputEnd.value
 
   
   

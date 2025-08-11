@@ -1,4 +1,4 @@
-import { taskClick, newTaskButtonProcess, completeButton } from '/js/button.js';
+import { taskClick, newTaskButtonProcess, completeButton } from '/js/taskFunctionButton.js';
 
 
 const modal = document.getElementById('modal')

@@ -60,6 +60,8 @@ main .inner .modal {
   position: absolute;
   width: 73vw;
   height: 70vw;
+  max-width: 600px;
+  max-height: 500px;
   top: 50%;
   left: 50%;
   align-items: center;
@@ -71,7 +73,7 @@ main .inner .modal {
   padding: 40px;
   border-radius: 15px;
   border: 1px solid black;
-  gap: 30px;
+  gap: clamp(15px, 2vw, 40px);
 }
 main .inner .modal.deactive {
   opacity: 0;

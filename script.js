@@ -1,5 +1,5 @@
 import { taskClick, newTaskButtonProcess, completeButton, editFunction } from '/js/taskFunctionButton.js';
-
+import { dragAndDropProcess } from '/js/dragAndDrop.js'
 
 const modal = document.getElementById('modal')
 const mask = document.getElementById('mask')
@@ -11,6 +11,7 @@ modal.classList.add('deactive')
 mask.classList.add('deactive')
 
 newTaskButtonProcess() 
+dragAndDropProcess()
 
 modalCancel.addEventListener('click', () => {
   mask.classList.add('deactive');
@@ -62,4 +63,8 @@ if(taskSwitch){
     
   });
   taskClick()
+  const taskListLi = document.querySelectorAll('.taskList li')
+  taskListLi.forEach(item => {
+    item.draggable = true;
+  })
 }

@@ -33,9 +33,11 @@ export function taskClick() {
       inputComplete.classList.add('deactive');
       inputEditComplete.classList.add('deactive');
       const liId = this.parentElement.id;
+
       index = Array.from(taskListLi).findIndex(li => li.id === liId)
       taskElement = document.getElementById(liId);
       deleteButton()
+      
     });
   })
 }
@@ -100,12 +102,18 @@ export function completeButton() {
     mask.classList.add('deactive');
     modal.classList.add('deactive');
     taskClick()
+    const taskListLi = document.querySelectorAll('.taskList li')
+    taskListLi.forEach(item => {
+      item.draggable = true;
+    })
+    
   })
 }
 
 // 編集ボタンを押した時の関数
 export function editFunction() {
   editTask.addEventListener('click', () => {
+    const taskData = JSON.parse(localStorage.getItem('taskData'));
     newTaskName.classList.remove('deactive')
     console.log(index)
     newTaskNameInput.value = taskData[index].name

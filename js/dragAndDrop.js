@@ -1,4 +1,6 @@
 const taskList = document.getElementById('taskList')
+const taskData = JSON.parse(localStorage.getItem('taskData'));
+
 
 
 
@@ -33,9 +35,19 @@ export function dragAndDropProcess() {
 
     if ( index < indexDrop) {
       taskList.insertBefore(dragItem, target.nextSibling);
-    
+      // const replacement = taskData[index]
+      let removed = taskData.splice(index,1)
+      let removedItem = removed[0]
+      taskData.splice(indexDrop, 0, removedItem)
+      
+      localStorage.setItem('taskData', JSON.stringify(taskData));
     } else {
       taskList.insertBefore(dragItem, target);
+      // const replacement = taskData[index]
+      let removed = taskData.splice(index,1)
+      let removedItem = removed[0]
+      taskData.splice(indexDrop, 0, removedItem)
+      localStorage.setItem('taskData', JSON.stringify(taskData));
 
     }
   })

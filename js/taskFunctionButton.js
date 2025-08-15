@@ -48,8 +48,8 @@ const taskData = JSON.parse(localStorage.getItem('taskData'));
 export function deleteButton() {
   if(isDelete) return;
   deleteTask.addEventListener('click', () => {
-    
-    
+    const taskList = document.getElementById('taskList')
+
     taskData.splice(index,1)
     
     localStorage.setItem('taskData', JSON.stringify(taskData));

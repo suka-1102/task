@@ -5,7 +5,7 @@ export function taskAdd() {
   const data = JSON.parse(localStorage.getItem('taskData'));
   const taskNumber = JSON.parse(localStorage.getItem('taskData')).length
   let li = document.createElement('li');
-  console.log(taskNumber)
+
   li.id = data[ taskNumber - 1 ].id;
   let button = document.createElement('button');
   let spanName = document.createElement('span');

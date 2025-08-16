@@ -154,4 +154,12 @@ main .inner .modal .deleteTask.deactive {
 .mask.deactive {
   opacity: 0;
   visibility: hidden;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.hover {
+  background-color: #e9e6e6 !important;
 }/*# sourceMappingURL=style.css.map */

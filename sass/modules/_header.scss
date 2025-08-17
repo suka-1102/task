@@ -1,0 +1,18 @@
+header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--siteGray);
+  height: 75px;
+  display: flex;
+  align-items: center;
+  .pageList {
+    display: flex;
+    margin-left: 60px;
+    gap: 15px;
+    li {
+      a {
+        color: var(--siteGray);
+        font-size: 12px;
+      }
+    }
+  }
+}

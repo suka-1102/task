@@ -1,11 +1,28 @@
 :root {
   --siteBlue: #1f97e1;
-  --siteGray: #9b9b9b;
+  --siteGray: #aeacac;
 }
 
 html {
   height: 100vh;
   background-color: #f3f0ed;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--siteGray);
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+header .pageList {
+  display: flex;
+  margin-left: 60px;
+  gap: 15px;
+}
+header .pageList li a {
+  color: var(--siteGray);
+  font-size: 12px;
 }
 
 main .inner {
@@ -142,6 +159,7 @@ main .inner .modal .deleteTask.deactive {
 main .inner .modal .taskCheck {
   display: flex;
   gap: 25px;
+  margin-top: 30px;
 }
 main .inner .modal .taskCheck.deactive {
   display: none;

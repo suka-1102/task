@@ -1,5 +1,6 @@
 import { taskClick, newTaskButtonProcess, completeButton, editFunction } from '/js/taskFunctionButton.js';
 import { dragAndDropProcess } from '/js/dragAndDrop.js'
+import { checkBoxProcess } from '/js/checkBox.js'
 
 const modal = document.getElementById('modal')
 const mask = document.getElementById('mask')

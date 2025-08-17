@@ -139,6 +139,20 @@ main .inner .modal .deleteTask {
 main .inner .modal .deleteTask.deactive {
   display: none;
 }
+main .inner .modal .taskCheck {
+  display: flex;
+  gap: 25px;
+}
+main .inner .modal .taskCheck.deactive {
+  display: none;
+}
+main .inner .modal .taskCheck .notComplete,
+main .inner .modal .taskCheck .complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 
 .mask {
   position: fixed;
@@ -162,4 +176,8 @@ main .inner .modal .deleteTask.deactive {
 
 .hover {
   background-color: #e9e6e6 !important;
+}
+
+.pointerEventsNone {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */

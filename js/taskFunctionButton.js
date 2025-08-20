@@ -1,5 +1,5 @@
 import { taskAdd } from './taskAction.js'
-import { checkBoxProcess } from './checkbox.js'
+
 
 let taskListLi = document.querySelectorAll('.taskList li');
 let index = Array.from(taskListLi).findIndex(li => li.id === liId)

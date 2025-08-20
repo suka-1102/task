@@ -38,7 +38,7 @@ header .pageList li a {
 .division main .inner .projectList {
   height: calc(90vh - 64px);
   margin-bottom: 30px;
-  border-top: 10px solid rgba(98, 189, 241, 0.9058823529);
+  border-top: 10px solid var(--siteBlue);
   background-color: #f4f2ef;
   width: 290px;
   border-radius: 10px;
@@ -73,6 +73,10 @@ header .pageList li a {
   margin-left: 8px;
   font-size: 13px;
   font-weight: 600;
+}
+.division main .inner .projectList .task .title span {
+  margin-left: 3px;
+  color: var(--siteBlue);
 }
 .division main .inner .projectList .task .taskList {
   margin: 0 15px;

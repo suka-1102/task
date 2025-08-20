@@ -117,6 +117,8 @@ export function deleteButton() {
     taskList.removeChild(taskElement)
     modal.classList.add('deactive')
     mask.classList.add('deactive')
+    const liCount = taskList.querySelectorAll('li').length || 0;
+    todoListNumber.textContent = liCount;
   })
   isDelete = true;
 }

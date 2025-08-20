@@ -30,5 +30,9 @@ export function taskAdd() {
   button.appendChild(spanContent)
   button.appendChild(spanTerm)
   button.appendChild(spanTermEnd)
+
+  const liCount = taskList.querySelectorAll('li').length || 0;
+  todoListNumber.textContent = liCount;
+
 }
 

@@ -5,6 +5,7 @@ import { dragAndDropProcess } from '/js/dragAndDrop.js'
 const modal = document.getElementById('modal')
 const mask = document.getElementById('mask')
 const modalCancel = document.getElementById('modalCancel')
+const todoListNumber = document.getElementById('todoListNumber')
 
 const taskList = document.getElementById('taskList')
 
@@ -61,6 +62,9 @@ if(taskSwitch){
     button.appendChild(spanTerm);
     button.appendChild(spanTermEnd);
     newTaskId = null
+    // todoListの個数
+    const liCount = taskList.querySelectorAll('li').length || 0;
+    todoListNumber.textContent = liCount;
     
   });
   taskClick()

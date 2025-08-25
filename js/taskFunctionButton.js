@@ -5,6 +5,7 @@ let taskListLi = document.querySelectorAll('.taskList li');
 let index = Array.from(taskListLi).findIndex(li => li.id === liId)
 let isDelete = false
 let taskElement
+let isTaskCheck = false;
 
 
 const deleteTask = document.getElementById('deleteTask')
@@ -20,8 +21,11 @@ const inputComplete = document.getElementById('inputComplete')
 const inputEditComplete = document.getElementById('inputEditComplete')
 const newTaskButton = document.getElementById('newTaskButton')
 const taskCheck = document.getElementById('taskCheck')
-const notComplete = document.getElementById('notComplete')
-const complete = document.getElementById('complete')
+const taskCheckIcon = document.getElementById('taskCheckIcon')
+const taskCheckTitle = document.getElementById('taskCheckTitle')
+
+const notComplete = document.querySelector('.notComplete')
+const complete = document.querySelector('.complete')
 
 const taskData = JSON.parse(localStorage.getItem('taskData'));
 //　タスクをクリックした時の関数
@@ -46,56 +50,91 @@ export function taskClick() {
       deleteButton()
 
       // checkboxの処理
-    //  if(taskData[index.checked]) {
-      
-    //  }
     if(taskData[index].checked) {
-      notComplete.checked = true;
-      complete.checked = false;
-      complete.classList.remove('pointerEventsNone')
-      notComplete.classList.add('pointerEventsNone')
-
+      // notComplete.checked = true;
+      // complete.checked = false;
+      // complete.classList.remove('pointerEventsNone')
+      // notComplete.classList.add('pointerEventsNone')
+      taskCheckTitle.textContent = '未完了'
+      taskCheck.classList.add('notComplete')
+      taskCheck.classList.remove('complete')
+      
       
     } else {
-      complete.checked = true;
-      notComplete.checked = false;
-      complete.classList.add('pointerEventsNone')
-      notComplete.classList.remove('pointerEventsNone')
+      taskCheckTitle.textContent = '完了'
+      taskCheck.classList.remove('notComplete')
+      taskCheck.classList.add('complete')
+      
+
+      // complete.checked = true;
+      // notComplete.checked = false;
+      // complete.classList.add('pointerEventsNone')
+      // notComplete.classList.remove('pointerEventsNone')
     }
-    complete.addEventListener('change', () => {
+    
+    if(!isTaskCheck) {
+      taskCheck.addEventListener('click', (e) => {
+        let target = e.currentTarget;
+        
+        if(target.classList.contains('complete')) {
+          taskCheck.classList.add('notComplete')
+          taskCheck.classList.remove('complete')
+          taskCheckTitle.textContent = '未完了'
+          taskData[index].checked = true;
+          localStorage.setItem(`taskData`,  JSON.stringify(taskData))
+
+          return
+        }
+        
+        if(target.classList.contains('notComplete')) {
+          taskCheck.classList.add('complete')
+          taskCheck.classList.remove('notComplete')
+          taskData[index].checked = false;
+          taskCheckTitle.textContent = '完了'
+          localStorage.setItem(`taskData`,  JSON.stringify(taskData))
+        }
+      })
+      isTaskCheck = true;
+    }
+  
+    
+    
+   
+     
+    // complete.addEventListener('change', () => {
        
-      complete.checked = true;
-      notComplete.checked = false;
-      complete.classList.add('pointerEventsNone')
-      notComplete.classList.remove('pointerEventsNone')
-      taskData[index].checked = false
-      localStorage.setItem(`taskData`,  JSON.stringify(taskData))
+    //   complete.checked = true;
+    //   notComplete.checked = false;
+    //   complete.classList.add('pointerEventsNone')
+    //   notComplete.classList.remove('pointerEventsNone')
+    //   taskData[index].checked = false
+    //   localStorage.setItem(`taskData`,  JSON.stringify(taskData))
 
       
-    })
-    notComplete.addEventListener('change', () => {
+    // })
+    // notComplete.addEventListener('change', () => {
         
-      complete.checked = false;
-      notComplete.checked = true;
-      complete.classList.remove('pointerEventsNone')
-      notComplete.classList.add('pointerEventsNone')
-      taskData[index].checked = true
-      localStorage.setItem(`taskData`,  JSON.stringify(taskData))
+    //   complete.checked = false;
+    //   notComplete.checked = true;
+    //   complete.classList.remove('pointerEventsNone')
+    //   notComplete.classList.add('pointerEventsNone')
+    //   taskData[index].checked = true
+    //   localStorage.setItem(`taskData`,  JSON.stringify(taskData))
 
-      if(taskData[index].checked) {
-        notComplete.checked = true;
-        complete.checked = false;
-        complete.classList.remove('pointerEventsNone')
-        notComplete.classList.add('pointerEventsNone')
+    //   if(taskData[index].checked) {
+    //     notComplete.checked = true;
+    //     complete.checked = false;
+    //     complete.classList.remove('pointerEventsNone')
+    //     notComplete.classList.add('pointerEventsNone')
   
         
-      } else {
-        complete.checked = true;
-        notComplete.checked = false;
-        complete.classList.add('pointerEventsNone')
-        notComplete.classList.remove('pointerEventsNone')
-      }
-    })
+    //   } else {
+    //     complete.checked = true;
+    //     notComplete.checked = false;
+    //     complete.classList.add('pointerEventsNone')
+    //     notComplete.classList.remove('pointerEventsNone')
+    //   }
+    // })
     
       
     });
@@ -181,7 +220,7 @@ export function editFunction() {
     const taskData = JSON.parse(localStorage.getItem('taskData'));
     newTaskName.classList.remove('deactive')
     taskCheck.classList.add('deactive')
-    console.log(index)
+
     newTaskNameInput.value = taskData[index].name
 
     newTaskContent.classList.remove('deactive')

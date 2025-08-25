@@ -3,6 +3,7 @@
   --siteBlue: #1f97e1;
   --siteGray: #aeacac;
   --fontGray: #9b9b9b;
+  --siteGreen: #56ce82;
 }
 
 body {
@@ -141,13 +142,13 @@ header .pageList li a {
   max-height: 500px;
   top: 50%;
   left: 50%;
-  align-items: center;
+  align-items: start;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 10;
   background-color: #fff;
   flex-direction: column;
-  padding: 40px;
+  padding: 25px;
   border-radius: 15px;
   border: 1px solid black;
   gap: clamp(15px, 2vw, 40px);
@@ -156,12 +157,55 @@ header .pageList li a {
   opacity: 0;
   pointer-events: none;
 }
-.division main .inner .modal .modalCancel {
-  margin-bottom: -20px;
-  margin-top: -15px;
-  width: 100%;
+.division main .inner .modal .modalFirstDiv {
   display: flex;
+  width: 100%;
   justify-content: flex-end;
+  gap: 15px;
+}
+.division main .inner .modal .modalFirstDiv .modalCancel {
+  font-size: 25px;
+  margin-top: -15px;
+  margin-right: -10px;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck {
+  display: flex;
+  gap: 12px;
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck span {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 10px;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck p {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.deactive {
+  display: none;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.notComplete {
+  color: var(--siteBlue);
+  border: 0.1px solid var(--siteBlue);
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.notComplete span {
+  border: 1px dotted var(--siteBlue);
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.complete {
+  border: 0.1px solid var(--siteGreen);
+  background-color: #c5efbe;
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.complete span {
+  color: #fff;
+  background-color: var(--siteGreen);
+}
+.division main .inner .modal .modalFirstDiv .taskCheck.complete p {
+  color: var(--siteGreen);
 }
 .division main .inner .modal .newTaskName,
 .division main .inner .modal .newTaskTerm {
@@ -215,21 +259,6 @@ header .pageList li a {
 }
 .division main .inner .modal .deleteTask.deactive {
   display: none;
-}
-.division main .inner .modal .taskCheck {
-  display: flex;
-  gap: 25px;
-  margin-top: 30px;
-}
-.division main .inner .modal .taskCheck.deactive {
-  display: none;
-}
-.division main .inner .modal .taskCheck .notComplete,
-.division main .inner .modal .taskCheck .complete {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
 }
 
 .sidebar {

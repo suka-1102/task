@@ -36,6 +36,7 @@ if(taskSwitch){
     const li = document.createElement('li');
     li.id = newTaskId;
     const button = document.createElement('button');
+    const div = document.createElement('div');
     
     const task = data[i];
   
@@ -59,8 +60,9 @@ if(taskSwitch){
     li.appendChild(button);
     button.appendChild(spanName);
     button.appendChild(spanContent);
-    button.appendChild(spanTerm);
-    button.appendChild(spanTermEnd);
+    button.appendChild(div)
+    div.appendChild(spanTerm);
+    div.appendChild(spanTermEnd);
     newTaskId = null
     // todoListの個数
     const liCount = taskList.querySelectorAll('li').length || 0;

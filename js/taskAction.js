@@ -8,6 +8,7 @@ export function taskAdd() {
 
   li.id = data[ taskNumber - 1 ].id;
   let button = document.createElement('button');
+  let div = document.createElement('div');
   let spanName = document.createElement('span');
   spanName.classList = 'taskName'
   spanName.textContent = newTaskNameInput.value
@@ -15,6 +16,7 @@ export function taskAdd() {
   let spanContent = document.createElement('span');
   spanContent.classList = 'spanContent'
   spanContent.textContent = newTaskContentInput.value
+
 
   let spanTerm = document.createElement('span');
   spanTerm.classList = 'spanTerm'
@@ -28,8 +30,9 @@ export function taskAdd() {
   li.appendChild(button)
   button.appendChild(spanName)
   button.appendChild(spanContent)
-  button.appendChild(spanTerm)
-  button.appendChild(spanTermEnd)
+  button.appendChild(div)
+  div.appendChild(spanTerm)
+  div.appendChild(spanTermEnd)
 
   const liCount = taskList.querySelectorAll('li').length || 0;
   todoListNumber.textContent = liCount;

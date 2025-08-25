@@ -1,6 +1,8 @@
+@charset "UTF-8";
 :root {
   --siteBlue: #1f97e1;
   --siteGray: #aeacac;
+  --fontGray: #9b9b9b;
 }
 
 body {
@@ -32,10 +34,10 @@ header .pageList li a {
 .division main .inner {
   margin: 75px 12px;
   display: flex;
-  flex-direction: column;
   gap: 30px;
 }
-.division main .inner .projectList {
+.division main .inner .toDoList,
+.division main .inner .notCompleteList {
   height: calc(90vh - 64px);
   margin-bottom: 30px;
   border-top: 10px solid var(--siteBlue);
@@ -43,10 +45,12 @@ header .pageList li a {
   width: 290px;
   border-radius: 10px;
 }
-.division main .inner .projectList .newTask {
+.division main .inner .toDoList .newTask,
+.division main .inner .notCompleteList .newTask {
   width: 90%;
 }
-.division main .inner .projectList .newTask .newTaskButton {
+.division main .inner .toDoList .newTask .newTaskButton,
+.division main .inner .notCompleteList .newTask .newTaskButton {
   padding: 12px 15px;
   margin: 0 15px;
   width: 100%;
@@ -58,52 +62,76 @@ header .pageList li a {
   border-radius: 12px;
   gap: 5px;
 }
-.division main .inner .projectList .newTask .newTaskButton span {
+.division main .inner .toDoList .newTask .newTaskButton span,
+.division main .inner .notCompleteList .newTask .newTaskButton span {
   font-size: 14px;
   display: flex;
   transform: translateY(-2.5px);
 }
-.division main .inner .projectList .task {
+.division main .inner .toDoList .task,
+.division main .inner .notCompleteList .task {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: 100%;
 }
-.division main .inner .projectList .task .title {
+.division main .inner .toDoList .task .title,
+.division main .inner .notCompleteList .task .title {
   margin-top: 10px;
   margin-left: 8px;
   font-size: 13px;
   font-weight: 600;
 }
-.division main .inner .projectList .task .title span {
+.division main .inner .toDoList .task .title span,
+.division main .inner .notCompleteList .task .title span {
   margin-left: 3px;
   color: var(--siteBlue);
 }
-.division main .inner .projectList .task .taskList {
+.division main .inner .toDoList .task .taskList,
+.division main .inner .notCompleteList .task .taskList {
   margin: 0 15px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: auto;
   gap: 8px;
 }
-.division main .inner .projectList .task .taskList li {
+.division main .inner .toDoList .task .taskList li,
+.division main .inner .notCompleteList .task .taskList li {
   width: 100%;
   background-color: #fff;
   border: 1px solid #efefef;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-.division main .inner .projectList .task .taskList li button {
+.division main .inner .toDoList .task .taskList li button,
+.division main .inner .notCompleteList .task .taskList li button {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 8px;
   width: 100%;
 }
-.division main .inner .projectList .task .taskList li button .taskName {
+.division main .inner .toDoList .task .taskList li button .taskName,
+.division main .inner .notCompleteList .task .taskList li button .taskName {
   font-size: 16px;
 }
-.division main .inner .projectList .task .taskList li button .spanContent {
+.division main .inner .toDoList .task .taskList li button .spanContent,
+.division main .inner .notCompleteList .task .taskList li button .spanContent {
   font-size: 12px;
-  color: #9b9b9b;
+  color: var(--fontGray);
+}
+.division main .inner .toDoList .task .taskList li button div,
+.division main .inner .notCompleteList .task .taskList li button div {
+  display: flex;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--fontGray);
+}
+.division main .inner .toDoList .task .taskList li button div .spanTerm::after,
+.division main .inner .notCompleteList .task .taskList li button div .spanTerm::after {
+  content: "〜";
+  margin-left: 3px;
 }
 .division main .inner .modal {
   position: absolute;

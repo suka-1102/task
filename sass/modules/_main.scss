@@ -98,6 +98,10 @@
               border: 1px solid #efefef;
               box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
               border-radius: 10px;
+              &.completed {
+                background-color: #e5e4e4;
+                border-left: 3px solid var(--siteGray);
+              }
               button {
                 display: flex;
                 flex-direction: column;

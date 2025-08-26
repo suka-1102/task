@@ -28,6 +28,7 @@ const notComplete = document.querySelector('.notComplete')
 const complete = document.querySelector('.complete')
 
 const taskData = JSON.parse(localStorage.getItem('taskData'));
+let li;
 //　タスクをクリックした時の関数
 export function taskClick() {
   taskListLi = document.querySelectorAll('.taskList li');
@@ -44,6 +45,7 @@ export function taskClick() {
       inputComplete.classList.add('deactive');
       inputEditComplete.classList.add('deactive');
       const liId = this.parentElement.id;
+      li = this.parentElement;
 
       index = Array.from(taskListLi).findIndex(li => li.id === liId)
       taskElement = document.getElementById(liId);
@@ -51,25 +53,13 @@ export function taskClick() {
 
       // checkboxの処理
     if(taskData[index].checked) {
-      // notComplete.checked = true;
-      // complete.checked = false;
-      // complete.classList.remove('pointerEventsNone')
-      // notComplete.classList.add('pointerEventsNone')
       taskCheckTitle.textContent = '未完了'
       taskCheck.classList.add('notComplete')
       taskCheck.classList.remove('complete')
-      
-      
     } else {
       taskCheckTitle.textContent = '完了'
       taskCheck.classList.remove('notComplete')
       taskCheck.classList.add('complete')
-      
-
-      // complete.checked = true;
-      // notComplete.checked = false;
-      // complete.classList.add('pointerEventsNone')
-      // notComplete.classList.remove('pointerEventsNone')
     }
     
     if(!isTaskCheck) {
@@ -81,6 +71,8 @@ export function taskClick() {
           taskCheck.classList.remove('complete')
           taskCheckTitle.textContent = '未完了'
           taskData[index].checked = true;
+
+          li.classList.remove('completed')
           localStorage.setItem(`taskData`,  JSON.stringify(taskData))
 
           return
@@ -91,6 +83,7 @@ export function taskClick() {
           taskCheck.classList.remove('notComplete')
           taskData[index].checked = false;
           taskCheckTitle.textContent = '完了'
+          li.classList.add('completed')
           localStorage.setItem(`taskData`,  JSON.stringify(taskData))
         }
       })
@@ -98,45 +91,6 @@ export function taskClick() {
     }
   
     
-    
-   
-     
-    // complete.addEventListener('change', () => {
-       
-    //   complete.checked = true;
-    //   notComplete.checked = false;
-    //   complete.classList.add('pointerEventsNone')
-    //   notComplete.classList.remove('pointerEventsNone')
-    //   taskData[index].checked = false
-    //   localStorage.setItem(`taskData`,  JSON.stringify(taskData))
-
-      
-    // })
-    // notComplete.addEventListener('change', () => {
-        
-    //   complete.checked = false;
-    //   notComplete.checked = true;
-    //   complete.classList.remove('pointerEventsNone')
-    //   notComplete.classList.add('pointerEventsNone')
-    //   taskData[index].checked = true
-    //   localStorage.setItem(`taskData`,  JSON.stringify(taskData))
-
-    //   if(taskData[index].checked) {
-    //     notComplete.checked = true;
-    //     complete.checked = false;
-    //     complete.classList.remove('pointerEventsNone')
-    //     notComplete.classList.add('pointerEventsNone')
-  
-        
-    //   } else {
-    //     complete.checked = true;
-    //     notComplete.checked = false;
-    //     complete.classList.add('pointerEventsNone')
-    //     notComplete.classList.remove('pointerEventsNone')
-    //   }
-    // })
-    
-      
     });
   })
 }

@@ -133,6 +133,11 @@ header .pageList li a {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+.division main .inner .toDoList .task .taskList li.completed,
+.division main .inner .notCompleteList .task .taskList li.completed {
+  background-color: #e5e4e4;
+  border-left: 3px solid var(--siteGray);
+}
 .division main .inner .toDoList .task .taskList li button,
 .division main .inner .notCompleteList .task .taskList li button {
   display: flex;

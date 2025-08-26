@@ -69,6 +69,11 @@ if(taskSwitch){
     // todoListの個数
     const liCount = taskList.querySelectorAll('li').length || 0;
     todoListNumber.textContent = liCount;
+
+    // 未完了、完了での変化
+    if(!task.checked) {
+      li.classList.add('completed')
+    }
     
   });
   taskClick()

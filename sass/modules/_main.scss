@@ -1,8 +1,37 @@
 .division {
   width: 100%;
   main {
+    .menuList {
+      display: flex;
+      padding: 25px 20px;
+      gap: 16px;
+      
+      li {
+        button {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #595858;
+          font-size: 14px;
+          padding-bottom: 10px;
+          &:hover {
+            color: var(--siteBlue);
+            border-bottom: 2px solid var(--siteBlue);
+          }
+          &.clicked {
+            color: var(--siteBlue);
+            border-bottom: 2px solid var(--siteBlue);
+          }
+          span {
+            font-size: 18px;
+            
+          }
+        }
+        
+      }
+    }
     .inner {
-      margin: 75px 12px;
+      margin: 0 12px;
       display: flex;
       gap: 30px;
       .toDoList,
@@ -13,6 +42,9 @@
         background-color: #f4f2ef;
         width: 290px;
         border-radius: 10px;
+        &.deactive {
+          display: none;
+        }
         .newTask {
           width: 90%;
           

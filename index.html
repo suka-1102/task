@@ -20,15 +20,19 @@
     </header>
     
     <main>
+      <ul class="menuList">
+        <li class="board" id="board"><button id="boardButton"><span class="fa-solid fa-chalkboard"></span>ボード</button></li>
+        <li class="ganttChart"><button id="ganttChartButton"><span class="fa-solid fa-bars-staggered"></span>ガントチャート</button></li>
+      </ul>
       <div class="inner">
         
-        <div class="toDoList">
+        <div class="toDoList" id="toDoList">
           
           <div class="task">
             <p class="title">ToDo リスト <span class="todoListNumber" id="todoListNumber"></span></p>
             <div class="newTask">
             
-              <button href="" class="newTaskButton" id="newTaskButton"><span>+</span>新規タスクを作成</button>
+              <button href="" class="newTaskButton" id="newTaskButton"><span>+</span>タスクを追加</button>
             </div>
             
             <ul class="taskList" id="taskList">
@@ -51,10 +55,7 @@
           </div>
           
         </div> -->
-        <!-- <div class="ganttChart"></div> -->
-        
-        
-  
+      
         <div class="modal" id="modal">
           <div class="modalFirstDiv">
             <button class="taskCheck" id="taskCheck">

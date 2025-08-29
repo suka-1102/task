@@ -1,9 +1,10 @@
 @charset "UTF-8";
 :root {
   --siteBlue: #1f97e1;
-  --siteGray: #aeacac;
+  --siteGray: #c5c5c5;
   --fontGray: #9b9b9b;
   --siteGreen: #56ce82;
+  --lightGray: #f4f2ef;
 }
 
 body {
@@ -61,25 +62,21 @@ header .pageList li a {
   display: flex;
   gap: 30px;
 }
-.division main .inner .toDoList,
-.division main .inner .notCompleteList {
+.division main .inner .toDoList {
   height: calc(90vh - 64px);
   margin-bottom: 30px;
   border-top: 10px solid var(--siteBlue);
-  background-color: #f4f2ef;
+  background-color: var(--lightGray);
   width: 290px;
   border-radius: 10px;
 }
-.division main .inner .toDoList.deactive,
-.division main .inner .notCompleteList.deactive {
+.division main .inner .toDoList.deactive {
   display: none;
 }
-.division main .inner .toDoList .newTask,
-.division main .inner .notCompleteList .newTask {
+.division main .inner .toDoList .newTask {
   width: 90%;
 }
-.division main .inner .toDoList .newTask .newTaskButton,
-.division main .inner .notCompleteList .newTask .newTaskButton {
+.division main .inner .toDoList .newTask .newTaskButton {
   padding: 12px 15px;
   margin: 0 15px;
   width: 100%;
@@ -91,33 +88,28 @@ header .pageList li a {
   border-radius: 12px;
   gap: 5px;
 }
-.division main .inner .toDoList .newTask .newTaskButton span,
-.division main .inner .notCompleteList .newTask .newTaskButton span {
+.division main .inner .toDoList .newTask .newTaskButton span {
   font-size: 14px;
   display: flex;
   transform: translateY(-2.5px);
 }
-.division main .inner .toDoList .task,
-.division main .inner .notCompleteList .task {
+.division main .inner .toDoList .task {
   display: flex;
   flex-direction: column;
   gap: 15px;
   height: 100%;
 }
-.division main .inner .toDoList .task .title,
-.division main .inner .notCompleteList .task .title {
+.division main .inner .toDoList .task .title {
   margin-top: 10px;
   margin-left: 8px;
   font-size: 13px;
   font-weight: 600;
 }
-.division main .inner .toDoList .task .title span,
-.division main .inner .notCompleteList .task .title span {
+.division main .inner .toDoList .task .title span {
   margin-left: 3px;
   color: var(--siteBlue);
 }
-.division main .inner .toDoList .task .taskList,
-.division main .inner .notCompleteList .task .taskList {
+.division main .inner .toDoList .task .taskList {
   margin: 0 15px;
   display: flex;
   flex-direction: column;
@@ -125,52 +117,44 @@ header .pageList li a {
   overflow: auto;
   gap: 8px;
 }
-.division main .inner .toDoList .task .taskList li,
-.division main .inner .notCompleteList .task .taskList li {
+.division main .inner .toDoList .task .taskList li {
   width: 100%;
   background-color: #fff;
   border: 1px solid #efefef;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-.division main .inner .toDoList .task .taskList li.completed,
-.division main .inner .notCompleteList .task .taskList li.completed {
+.division main .inner .toDoList .task .taskList li.completed {
   background-color: #e5e4e4;
   border-left: 3px solid var(--siteGray);
 }
-.division main .inner .toDoList .task .taskList li button,
-.division main .inner .notCompleteList .task .taskList li button {
+.division main .inner .toDoList .task .taskList li button {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 8px;
   width: 100%;
 }
-.division main .inner .toDoList .task .taskList li button .taskName,
-.division main .inner .notCompleteList .task .taskList li button .taskName {
+.division main .inner .toDoList .task .taskList li button .taskName {
   font-size: 16px;
 }
-.division main .inner .toDoList .task .taskList li button .spanContent,
-.division main .inner .notCompleteList .task .taskList li button .spanContent {
+.division main .inner .toDoList .task .taskList li button .spanContent {
   font-size: 12px;
   color: var(--fontGray);
 }
-.division main .inner .toDoList .task .taskList li button div,
-.division main .inner .notCompleteList .task .taskList li button div {
+.division main .inner .toDoList .task .taskList li button div {
   display: flex;
   gap: 3px;
   font-size: 12px;
   color: var(--fontGray);
 }
-.division main .inner .toDoList .task .taskList li button div .spanTerm::after,
-.division main .inner .notCompleteList .task .taskList li button div .spanTerm::after {
+.division main .inner .toDoList .task .taskList li button div .spanTerm::after {
   content: "〜";
   margin-left: 3px;
 }
 .division main .inner .modal {
   position: absolute;
   width: 73vw;
-  height: 70vw;
   max-width: 600px;
   max-height: 500px;
   top: 50%;
@@ -242,7 +226,7 @@ header .pageList li a {
 }
 .division main .inner .modal .newTaskName,
 .division main .inner .modal .newTaskTerm {
-  width: 80%;
+  width: 75%;
 }
 .division main .inner .modal .newTaskName input,
 .division main .inner .modal .newTaskTerm input {
@@ -258,10 +242,10 @@ header .pageList li a {
 .division main .inner .modal .newTaskContent {
   width: 80%;
 }
-.division main .inner .modal .newTaskContent input {
+.division main .inner .modal .newTaskContent textarea {
   width: 100%;
   border: 1px solid var(--siteGray);
-  padding: 40px 0;
+  padding: 30px 0;
   border-radius: 7px;
 }
 .division main .inner .modal .newTaskContent.deactive {
@@ -293,13 +277,83 @@ header .pageList li a {
 .division main .inner .modal .deleteTask.deactive {
   display: none;
 }
+.division main .ganttChartDisplay {
+  border-top: 1px solid var(--siteGray);
+}
+.division main .ganttChartDisplay.deactive {
+  display: none;
+}
+.division main .ganttChartDisplay .ganttChartTasks {
+  width: 450px;
+  height: 600px;
+}
+.division main .ganttChartDisplay .ganttChartTasks .top {
+  height: 100px;
+  width: 100%;
+  display: grid;
+  border-bottom: 1px solid var(--siteGray);
+  grid-template-columns: 270px 90px 90px;
+  background-color: var(--lightGray);
+}
+.division main .ganttChartDisplay .ganttChartTasks .top .dayDiv {
+  height: 100%;
+  position: relative;
+}
+.division main .ganttChartDisplay .ganttChartTasks .top .dayDiv::after {
+  position: absolute;
+  border-right: 0.5px solid var(--siteGray);
+  content: "";
+  right: 0;
+  height: calc(100vh - 155px);
+}
+.division main .ganttChartDisplay .ganttChartTasks .top .startDay,
+.division main .ganttChartDisplay .ganttChartTasks .top .endDay {
+  display: flex;
+  color: var(--fontGray);
+  font-size: 12px;
+  position: relative;
+}
+.division main .ganttChartDisplay .ganttChartTasks .top .startDay p,
+.division main .ganttChartDisplay .ganttChartTasks .top .endDay p {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.division main .ganttChartDisplay .ganttChartTasks .top .startDay::after,
+.division main .ganttChartDisplay .ganttChartTasks .top .endDay::after {
+  position: absolute;
+  border-right: 0.5px solid var(--siteGray);
+  content: "";
+  right: 0;
+  height: calc(100vh - 155px);
+}
+.division main .ganttChartDisplay .ganttChartTasks .ganttChartTasksList li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  display: grid;
+  grid-template-columns: 270px 90px 90px;
+}
+.division main .ganttChartDisplay .ganttChartTasks .ganttChartTasksList li:hover {
+  background-color: var(--lightGray);
+}
+.division main .ganttChartDisplay .ganttChartTasks .ganttChartTasksList li .ganttChartTaskName {
+  margin-left: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.division main .ganttChartDisplay .ganttChartTasks .ganttChartTasksList li .ganttChartTerm,
+.division main .ganttChartDisplay .ganttChartTasks .ganttChartTasksList li .ganttChartTermEnd {
+  margin-left: 10px;
+  font-size: 12px;
+}
 
 .sidebar {
   background-color: #544c4c;
   width: 200px;
-  left: 0;
-  height: 1200px;
-  top: 0;
+  height: 100vh;
 }
 
 .mask {

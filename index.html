@@ -41,21 +41,8 @@
           </div>
           
         </div>
-        <!-- <div class="notCompleteList">
-          <div class="task">
-            <p class="title">未完了リスト <span class="todoListNumber" id="todoListNumber"></span></p>
-            <div class="newTask">
-            
-              <button href="" class="newTaskButton" id="newTaskButton"><span>+</span>新規タスクを作成</button>
-            </div>
-            
-            <ul class="taskList" id="taskList">
-              
-            </ul>
-          </div>
+
           
-        </div> -->
-      
         <div class="modal" id="modal">
           <div class="modalFirstDiv">
             <button class="taskCheck" id="taskCheck">
@@ -71,7 +58,7 @@
           </div>
           <div class="newTaskContent" id="newTaskContent">
             <p>タスクの内容</p>
-            <input type="text" id="newTaskContentInput">
+            <textarea id="newTaskContentInput"></textarea>
           </div>
           <div class="newTaskTerm" id="newTaskTerm">
             <p>タスクの期間</p>
@@ -92,18 +79,32 @@
           
           <button class="deleteTask" id="deleteTask">削除</button>
           <button class="editTask" id="editTask">編集</button>
-          <!-- <div class="taskCheck" id="taskCheck">
-            <div class="notComplete">
-              <p>未完了</p>
-              <input type="checkbox" id="notComplete" checked>
-            </div>
-            <div class="complete">
-              <p>完了</p>
-              <input type="checkbox" id="complete">
-            </div>
-          </div> -->
+
         </div>
       </div>
+
+      <div class="ganttChartDisplay" id="ganttChartDisplay">
+        <div class="ganttChartTasks">
+          <div class="top">
+            <div class="dayDiv"></div>
+            <div class="startDay"><p>開始日</p></div>
+            <div class="endDay"><p>締切日</p></div>
+          </div>
+          <ul class="ganttChartTasksList" id="ganttChartTasksList">
+            
+          </ul>
+        </div>
+        <div class="ganttChartCalendar">
+          <div class="calendar">
+            <div class="top">
+              <div class="yearManth"></div>
+              <div class="dayOfWeek"></div>
+            </div>
+            <div class="bottom"></div>
+          </div>
+        </div>
+      </div>
+      
       <div class="mask" id="mask"></div>
   
       

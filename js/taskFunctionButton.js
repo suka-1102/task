@@ -23,6 +23,7 @@ const newTaskButton = document.getElementById('newTaskButton')
 const taskCheck = document.getElementById('taskCheck')
 const taskCheckIcon = document.getElementById('taskCheckIcon')
 const taskCheckTitle = document.getElementById('taskCheckTitle')
+const ganttChartTasksList = document.getElementById('ganttChartTasksList')
 
 const notComplete = document.querySelector('.notComplete')
 const complete = document.querySelector('.complete')
@@ -104,10 +105,12 @@ export function deleteButton() {
     const taskList = document.getElementById('taskList')
 
     taskData.splice(index,1)
-    
+    let ganttdeleteLi = document.querySelector(`.ganttChartTasksList li:nth-of-type(${index + 1})`)
     localStorage.setItem('taskData', JSON.stringify(taskData));
     // 消した後の表示変更
+
     taskList.removeChild(taskElement)
+    ganttChartTasksList.removeChild(ganttdeleteLi)
     modal.classList.add('deactive')
     mask.classList.add('deactive')
     const liCount = taskList.querySelectorAll('li').length || 0;

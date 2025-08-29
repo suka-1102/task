@@ -1,12 +1,14 @@
 import { taskClick, newTaskButtonProcess, completeButton, editFunction } from '/js/taskFunctionButton.js';
 import { dragAndDropProcess } from '/js/dragAndDrop.js'
 import { menuButtonFunction } from '/js/menuButton.js'
+import { ganttChartFunction } from '/js/ganttChartFunction.js'
 
 
 const modal = document.getElementById('modal')
 const mask = document.getElementById('mask')
 const modalCancel = document.getElementById('modalCancel')
 const todoListNumber = document.getElementById('todoListNumber')
+const ganttChartTasksList = document.getElementById('ganttChartTasksList')
 
 const taskList = document.getElementById('taskList')
 
@@ -24,6 +26,7 @@ modalCancel.addEventListener('click', () => {
 completeButton()
 editFunction()
 menuButtonFunction()
+ganttChartFunction()
 
 
 let taskSwitch = true
@@ -36,6 +39,7 @@ if(taskSwitch){
   Array.from({ length: taskNumber }).forEach((_, i) => {
     let newTaskId = data[i].id
     const li = document.createElement('li');
+    
     li.id = newTaskId;
     const button = document.createElement('button');
     const div = document.createElement('div');
@@ -65,6 +69,28 @@ if(taskSwitch){
     button.appendChild(div)
     div.appendChild(spanTerm);
     div.appendChild(spanTermEnd);
+
+     // ガントチャートでのタスク
+    
+     const ganttLi = document.createElement('li')
+     ganttLi.id = newTaskId
+     const spanGanttChartTaskName = document.createElement('span')
+     spanGanttChartTaskName.classList = 'ganttChartTaskName'
+     spanGanttChartTaskName.textContent = task.name
+ 
+     const ganttChartTerm = document.createElement('span')
+     ganttChartTerm.classList = 'ganttChartTerm'
+     ganttChartTerm.textContent = task.term
+ 
+     const ganttChartTermEnd = document.createElement('span')
+     ganttChartTermEnd.classList = 'ganttChartTermEnd'
+     ganttChartTermEnd.textContent = task.termEnd
+ 
+     ganttChartTasksList.appendChild(ganttLi)
+     ganttLi.appendChild(spanGanttChartTaskName)
+     ganttLi.appendChild(ganttChartTerm)
+     ganttLi.appendChild(ganttChartTermEnd)
+
     newTaskId = null
     // todoListの個数
     const liCount = taskList.querySelectorAll('li').length || 0;
@@ -74,7 +100,8 @@ if(taskSwitch){
     if(!task.checked) {
       li.classList.add('completed')
     }
-    
+
+   
   });
   taskClick()
   const taskListLi = document.querySelectorAll('.taskList li')

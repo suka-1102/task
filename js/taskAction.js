@@ -37,5 +37,24 @@ export function taskAdd() {
   const liCount = taskList.querySelectorAll('li').length || 0;
   todoListNumber.textContent = liCount;
 
+  const ganttLi = document.createElement('li')
+  ganttLi.id = data[ taskNumber - 1 ].id;
+  const spanGanttChartTaskName = document.createElement('span')
+  spanGanttChartTaskName.classList = 'ganttChartTaskName'
+  spanGanttChartTaskName.textContent = data[taskNumber - 1].name
+
+  const ganttChartTerm = document.createElement('span')
+  ganttChartTerm.classList = 'ganttChartTerm'
+  ganttChartTerm.textContent = data[taskNumber - 1].term
+
+  const ganttChartTermEnd = document.createElement('span')
+  ganttChartTermEnd.classList = 'ganttChartTermEnd'
+  ganttChartTermEnd.textContent = data[taskNumber - 1].termEnd
+
+  ganttChartTasksList.appendChild(ganttLi)
+  ganttLi.appendChild(spanGanttChartTaskName)
+  ganttLi.appendChild(ganttChartTerm)
+  ganttLi.appendChild(ganttChartTermEnd)
+
 }
 

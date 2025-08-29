@@ -34,12 +34,11 @@
       margin: 0 12px;
       display: flex;
       gap: 30px;
-      .toDoList,
-      .notCompleteList {
+      .toDoList {
         height: calc(90vh - 64px);
         margin-bottom: 30px;
         border-top: 10px solid var(--siteBlue);
-        background-color: #f4f2ef;
+        background-color: var(--lightGray);
         width: 290px;
         border-radius: 10px;
         &.deactive {
@@ -133,11 +132,11 @@
           }
         }
       }
+      
     
       .modal {
         position: absolute;
         width: 73vw;
-        height: 70vw;
         max-width: 600px;
         max-height: 500px;
         top: 50%;
@@ -211,7 +210,7 @@
         
         .newTaskName,
         .newTaskTerm {
-          width: 80%;
+          width: 75%;
           input {
             width: 100%;
             border: 1px solid var(--siteGray);
@@ -224,10 +223,10 @@
         }
         .newTaskContent {
           width: 80%;
-          input {
+          textarea {
             width: 100%;
             border: 1px solid var(--siteGray);
-            padding: 40px 0;
+            padding: 30px 0;
             border-radius: 7px;
           }
           &.deactive {
@@ -260,6 +259,80 @@
         }
         
         
+      }
+    }
+    .ganttChartDisplay {
+      border-top: 1px solid var(--siteGray);
+      &.deactive {
+        display: none;
+      }
+      .ganttChartTasks {
+        width: 450px;
+        height: 600px;
+        .top {
+          height: 100px;
+          width: 100%;
+          display: grid;
+          border-bottom: 1px solid var(--siteGray);
+          grid-template-columns:270px 90px 90px ;
+          background-color: var(--lightGray) ;
+          .dayDiv {
+            height: 100%;
+            position: relative;
+            &::after {
+              position: absolute; 
+              border-right: .5px solid var(--siteGray);
+              content: "";
+              right: 0;
+              height: calc( 100vh - 155px );
+            }
+          }
+          .startDay,
+          .endDay {
+            display: flex;
+          
+            color: var(--fontGray);
+            font-size: 12px;
+            position: relative;
+            p {
+              display: flex;
+              width: 100%;
+              align-items: center;
+              justify-content: center;
+            }
+            &::after {
+              position: absolute;
+              border-right: .5px solid var(--siteGray);
+              content: "";
+              right: 0;
+              height: calc( 100vh - 155px );
+            }
+          }
+        }
+        .ganttChartTasksList {
+          
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            display: grid;
+            grid-template-columns: 270px 90px 90px;
+            &:hover {
+              background-color: var(--lightGray);
+            }
+            .ganttChartTaskName {
+              margin-left: 15px;
+              font-size: 12px;
+              font-weight: 600;
+            }
+            .ganttChartTerm,
+            .ganttChartTermEnd {
+              margin-left: 10px;
+              font-size: 12px;
+            }
+          }
+        }
       }
     }
   }

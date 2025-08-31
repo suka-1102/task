@@ -263,6 +263,7 @@
     }
     .ganttChartDisplay {
       border-top: 1px solid var(--siteGray);
+      display: flex;
       &.deactive {
         display: none;
       }
@@ -331,6 +332,64 @@
               margin-left: 10px;
               font-size: 12px;
             }
+          }
+        }
+        
+      }
+      .ganttChartCalendar {
+        height: 811px;
+        
+        .calendar {
+          height: 100%;
+          overflow-x: auto;
+          cursor: grab;
+          .top {
+            height: 100px;
+            .yearMonth {
+              display: flex;
+              width: 72500px;
+              font-size: 12px;
+              height: 30px;
+              background-color: var(--lightGray);
+              .monthCell {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 1px solid var(--siteGray);
+                border-bottom: 1px solid var(--siteGray);
+                white-space: nowrap;
+                overflow: hidden;
+                
+              }
+            }
+            .dayOfWeek,
+            .dayOfWeekName {
+              display: flex;
+              width: 72500px;
+              background-color: var(--lightGray);
+              .dateCell {
+                height: 34px;
+                border-right: 1px solid var(--siteGray);
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+              }
+              .dayCellWeeks {
+                height: 34px;
+                border-right: 1px solid var(--siteGray);
+                border-bottom: 1px solid var(--siteGray);
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+              }
+            }
+          }
+          .bottom {
+            
           }
         }
       }

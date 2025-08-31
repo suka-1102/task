@@ -279,6 +279,7 @@ header .pageList li a {
 }
 .division main .ganttChartDisplay {
   border-top: 1px solid var(--siteGray);
+  display: flex;
 }
 .division main .ganttChartDisplay.deactive {
   display: none;
@@ -349,7 +350,58 @@ header .pageList li a {
   margin-left: 10px;
   font-size: 12px;
 }
-
+.division main .ganttChartDisplay .ganttChartCalendar {
+  height: 811px;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar {
+  height: 100%;
+  overflow-x: auto;
+  cursor: grab;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top {
+  height: 100px;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .yearMonth {
+  display: flex;
+  width: 72500px;
+  font-size: 12px;
+  height: 30px;
+  background-color: var(--lightGray);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .yearMonth .monthCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--siteGray);
+  border-bottom: 1px solid var(--siteGray);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName {
+  display: flex;
+  width: 72500px;
+  background-color: var(--lightGray);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dateCell,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dateCell {
+  height: 34px;
+  border-right: 1px solid var(--siteGray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dayCellWeeks,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dayCellWeeks {
+  height: 34px;
+  border-right: 1px solid var(--siteGray);
+  border-bottom: 1px solid var(--siteGray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
 .sidebar {
   background-color: #544c4c;
   width: 200px;

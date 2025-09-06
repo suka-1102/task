@@ -26,6 +26,8 @@ export function ganttChartFunction() {
 
   const dateArray = Array.from({ length: daysBetween + 1 });
   let dayCount = 0;
+
+  let todayElement = null;
   dateArray.forEach((_, i) => {
     const date = new Date(startDate);
     
@@ -33,7 +35,7 @@ export function ganttChartFunction() {
     
     date.setDate(startDate.getDate() + i);
     
-    console.log(date.getDay())
+
     const dayCell = document.createElement('div');
     dayCell.style.width = '31px'
     dayCell.textContent = date.getDate();
@@ -44,10 +46,26 @@ export function ganttChartFunction() {
     dayCellWeeks.textContent = daysName[date.getDay()];
     dayCellWeeks.className = 'dayCellWeeks';
 
-
-    if (date.toDateString() === today.toDateString()) {
- 
+    // 土曜日の場合
+    if(date.getDay() === 6) {
+      dayCell.classList.add('blue')
+      dayCellWeeks.classList.add('blue')
     }
+
+    // 日曜日の場合
+    if(date.getDay() === 0) {
+      dayCell.classList.add('red')
+      dayCellWeeks.classList.add('red')
+    }
+    
+
+    const dayAnddayOfWeek = document.getElementById('dayAnddayOfWeek')
+    if (date.toDateString() === today.toDateString()) {
+      dayCell.classList.add('today')
+      dayCellWeeks.classList.add('today')
+      todayElement = dayCell;
+    }
+    
 
     dayOfWeek.appendChild(dayCell);
     dayOfWeekName.appendChild(dayCellWeeks);
@@ -80,4 +98,13 @@ export function ganttChartFunction() {
     }
   });
   
-}
+  if (todayElement) {
+    console.log('fff')
+    todayElement.scrollIntoView({
+      behavior: 'auto', // スムーズにスクロールしたい場合は 'smooth'
+      inline: 'start',
+      block: 'nearest',
+      
+    });
+  }
+} 

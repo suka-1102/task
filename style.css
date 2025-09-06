@@ -5,6 +5,7 @@
   --fontGray: #9b9b9b;
   --siteGreen: #56ce82;
   --lightGray: #f4f2ef;
+  --siteRed: #dd6d6d;
 }
 
 body {
@@ -268,7 +269,7 @@ header .pageList li a {
 }
 .division main .inner .modal .deleteTask {
   padding: 10px;
-  background-color: #dd6d6d;
+  background-color: var(--siteRed);
   width: 25%;
   display: flex;
   justify-content: center;
@@ -367,6 +368,8 @@ header .pageList li a {
   font-size: 12px;
   height: 30px;
   background-color: var(--lightGray);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .division main .ganttChartDisplay .ganttChartCalendar .calendar .top .yearMonth .monthCell {
   display: flex;
@@ -392,6 +395,19 @@ header .pageList li a {
   align-items: center;
   font-size: 12px;
 }
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dateCell.blue,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dateCell.blue {
+  color: var(--siteBlue);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dateCell.red,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dateCell.red {
+  color: var(--siteRed);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dateCell.today,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dateCell.today {
+  color: white;
+  background-color: var(--siteRed);
+}
 .division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dayCellWeeks,
 .division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dayCellWeeks {
   height: 34px;
@@ -401,6 +417,19 @@ header .pageList li a {
   justify-content: center;
   align-items: center;
   font-size: 12px;
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dayCellWeeks.blue,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dayCellWeeks.blue {
+  color: var(--siteBlue);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dayCellWeeks.red,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dayCellWeeks.red {
+  color: var(--siteRed);
+}
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeek .dayCellWeeks.today,
+.division main .ganttChartDisplay .ganttChartCalendar .calendar .top .dayOfWeekName .dayCellWeeks.today {
+  color: white;
+  background-color: var(--siteRed);
 }
 .sidebar {
   background-color: #544c4c;

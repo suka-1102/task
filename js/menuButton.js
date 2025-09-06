@@ -22,4 +22,5 @@ export function menuButtonFunction() {
     toDoList.classList.remove('deactive')
     ganttChartDisplay.classList.add('deactive')
   })
+  
 }

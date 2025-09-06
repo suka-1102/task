@@ -248,7 +248,7 @@
         }
         .deleteTask {
           padding: 10px;
-          background-color: #dd6d6d;
+          background-color: var(--siteRed);
           width: 25%;
           display: flex;
           justify-content: center;
@@ -351,6 +351,8 @@
               font-size: 12px;
               height: 30px;
               background-color: var(--lightGray);
+              overflow-x: auto;
+              white-space: nowrap;
               .monthCell {
                 display: flex;
                 justify-content: center;
@@ -375,16 +377,35 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 12px;
+                &.blue {
+                  color: var(--siteBlue);
+                }
+                &.red {
+                  color: var(--siteRed);
+                }
+                &.today {
+                  color: white;
+                  background-color: var(--siteRed);
+                }
               }
               .dayCellWeeks {
                 height: 34px;
                 border-right: 1px solid var(--siteGray);
                 border-bottom: 1px solid var(--siteGray);
-                
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 12px;
+                &.blue {
+                  color: var(--siteBlue);
+                }
+                &.red {
+                  color: var(--siteRed);
+                }
+                &.today {
+                  color: white;
+                  background-color: var(--siteRed);
+                }
               }
             }
           }

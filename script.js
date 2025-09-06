@@ -110,11 +110,13 @@ if(taskSwitch){
   })
 }
 
-
+  const width = window.innerWidth;
+  const calendar = document.getElementById('calendar')
+  calendar.style.width = `${ width - 650 }px`
 window.addEventListener('resize', () => {
   const width = window.innerWidth;
   const calendar = document.getElementById('calendar')
   calendar.style.width = `${ width - 650 }px`
-
+  
 })
 
